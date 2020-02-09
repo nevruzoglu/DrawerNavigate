@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'new_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 
 void main() => runApp(MyApp());
+
+//* Svg define  -------------------
+final String placeIcon = 'assets/beenhere-24px.svg';
+final String extraServiceIcon = 'assets/local_cafe-24px.svg';
+
+// --------------------------------------
 
 class MyApp extends StatelessWidget {
   @override
@@ -56,7 +63,7 @@ class HomePage extends StatelessWidget {
                           backgroundImage: AssetImage('screens/52828295.jpg')),
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(40, 10, 90, 10),
+                      padding: EdgeInsets.fromLTRB(40, 10, 80, 10),
                       child: FlatButton.icon(
                         icon: Icon(FontAwesomeIcons.searchDollar),
 
@@ -69,14 +76,17 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w700, fontSize: 18),
                         ),
-                        padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                        padding: EdgeInsets.fromLTRB(0, 12, 20, 12),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                       ),
                     ),
                     ListTile(
-                        leading: Icon(Icons.person_outline),
-                        title: Text('Profile',
+                        leading: SvgPicture.asset(
+                          placeIcon,
+                          color: Colors.grey.shade600,
+                        ),
+                        title: Text('Destinations',
                             style: Theme.of(context).textTheme.body1
                             // .copyWith(fontWeight: FontWeight.bold), // can add extra style to theme
                             ),
@@ -89,9 +99,12 @@ class HomePage extends StatelessWidget {
                                   NewPage("Buy Boats")));
                         }),
                     ListTile(
-                        leading: Icon(Icons.mail_outline),
+                        leading: SvgPicture.asset(
+                          extraServiceIcon,
+                          color: Colors.grey.shade600,
+                        ),
                         title: Text(
-                          'Messages',
+                          'Extra Services',
                           style: Theme.of(context).textTheme.body1,
                         ),
                         // trailing: Icon(Icons.arrow_right),
@@ -117,9 +130,9 @@ class HomePage extends StatelessWidget {
                                   NewPage("Rent Boats")));
                         }),
                     ListTile(
-                        leading: Icon(Icons.graphic_eq),
+                        leading: Icon(Icons.attach_money),
                         title: Text(
-                          'Statics',
+                          'Become Partner',
                           style: Theme.of(context).textTheme.body1,
                         ),
                         // trailing: Icon(Icons.arrow_right),

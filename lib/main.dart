@@ -10,6 +10,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Material App',
       theme: ThemeData(
+          textTheme: TextTheme(
+              body1: TextStyle(fontSize: 18),
+              headline: TextStyle(fontSize: 36),
+              title: TextStyle(fontSize: 40)),
           fontFamily: 'Lato',
           primaryColor: TargetPlatform.android != null
               ? Colors.grey.shade50
@@ -52,8 +56,7 @@ class HomePage extends StatelessWidget {
                           backgroundImage: AssetImage('screens/52828295.jpg')),
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      padding: EdgeInsets.symmetric(horizontal: 40),
+                      padding: EdgeInsets.fromLTRB(40, 10, 90, 10),
                       child: FlatButton.icon(
                         icon: Icon(FontAwesomeIcons.searchDollar),
 
@@ -66,16 +69,19 @@ class HomePage extends StatelessWidget {
                           style: TextStyle(
                               fontWeight: FontWeight.w700, fontSize: 18),
                         ),
-                        padding: EdgeInsets.fromLTRB(40, 10, 40, 10),
+                        padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
+                            borderRadius: BorderRadius.circular(4)),
                       ),
                     ),
                     ListTile(
-                        leading: Icon(Icons.open_with),
-                        title: Text('Buy Boats'),
+                        leading: Icon(Icons.person_outline),
+                        title: Text('Profile',
+                            style: Theme.of(context).textTheme.body1
+                            // .copyWith(fontWeight: FontWeight.bold), // can add extra style to theme
+                            ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -83,9 +89,41 @@ class HomePage extends StatelessWidget {
                                   NewPage("Buy Boats")));
                         }),
                     ListTile(
-                        title: Text('Rent Boats'),
+                        leading: Icon(Icons.mail_outline),
+                        title: Text(
+                          'Messages',
+                          style: Theme.of(context).textTheme.body1,
+                        ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  NewPage("Rent Boats")));
+                        }),
+                    ListTile(
+                        leading: Icon(Icons.favorite_border),
+                        title: Text(
+                          'Favorites',
+                          style: Theme.of(context).textTheme.body1,
+                        ),
+                        // trailing: Icon(Icons.arrow_right),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  NewPage("Rent Boats")));
+                        }),
+                    ListTile(
+                        leading: Icon(Icons.graphic_eq),
+                        title: Text(
+                          'Statics',
+                          style: Theme.of(context).textTheme.body1,
+                        ),
+                        // trailing: Icon(Icons.arrow_right),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -98,20 +136,32 @@ class HomePage extends StatelessWidget {
               Column(
                 children: <Widget>[
                   Divider(
-                    color: Colors.blue.shade50,
+                    color: Colors.black,
                   ),
-                  SafeArea(
-                    child: ListTile(
-                        title: Text('Close'),
-                        trailing: Icon(
-                          Icons.close,
-                          size: 18,
-                        ),
-                        contentPadding: EdgeInsets.fromLTRB(20, 0, 40, 0),
-                        onTap: () {
-                          Navigator.pop(context);
-                        }),
-                  ),
+                  ListTile(
+                      leading: Icon(
+                        Icons.settings,
+                        color: Colors.grey.shade400,
+                      ),
+                      title: Text(
+                        'Settings',
+                        style: Theme.of(context).textTheme.body1,
+                      ),
+                      contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      onTap: () {
+                        Navigator.pop(context);
+                      }),
+                  ListTile(
+                      leading: Icon(Icons.exit_to_app),
+                      title: Text(
+                        'Close',
+                        style: Theme.of(context).textTheme.body1,
+                      ),
+                      contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                      onTap: () {
+                        Navigator.pop(context);
+                      }),
+                  SizedBox(height: 40)
                 ],
               )
             ],

@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Material App',
+      debugShowCheckedModeBanner: false,
+      title: 'Drawer Example',
       theme: ThemeData(
           textTheme: TextTheme(
               body1: TextStyle(fontSize: 18, color: Colors.grey.shade700),
@@ -38,7 +39,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Material App Bar'),
+        title: Text('Best Drawer App'),
         elevation: 0,
       ),
       drawer: Drawer(
@@ -71,10 +72,12 @@ class HomePage extends StatelessWidget {
                       child: FlatButton.icon(
                         icon: Icon(FontAwesomeIcons.searchDollar),
 
-                        onPressed: () => Navigator.of(context).push(
-                            MaterialPageRoute(
-                                builder: (BuildContext context) => NewPage(
-                                    "Buy Boats"))), // without onPress, style not showing
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  NewPage("Buy Boats")));
+                        }, // without onPress, style not showing
                         color: Colors.blue.shade500,
                         textColor: Colors.white,
                         label: Text(

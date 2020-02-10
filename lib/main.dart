@@ -18,8 +18,11 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       theme: ThemeData(
           textTheme: TextTheme(
-              body1: TextStyle(fontSize: 18),
-              headline: TextStyle(fontSize: 36),
+              body1: TextStyle(fontSize: 18, color: Colors.grey.shade700),
+              headline: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.grey.shade700),
               title: TextStyle(fontSize: 40)),
           fontFamily: 'Lato',
           primaryColor: TargetPlatform.android != null
@@ -40,7 +43,6 @@ class HomePage extends StatelessWidget {
       ),
       drawer: Drawer(
         child: Container(
-          color: Colors.grey.shade50,
           child: Column(
             children: <Widget>[
               Expanded(
@@ -48,35 +50,39 @@ class HomePage extends StatelessWidget {
                   children: <Widget>[
                     UserAccountsDrawerHeader(
                       margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      accountName: Text(
-                        'BurakN.ux',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      accountName: Text('BurakN.ux',
+                          style: Theme.of(context).textTheme.headline),
                       accountEmail: Text(
                         'nevruzoglu@gmail.com',
                         style: TextStyle(color: Colors.grey.shade500),
                       ),
                       currentAccountPicture: CircleAvatar(
+                          backgroundColor: Colors.blue,
                           backgroundImage: AssetImage('screens/52828295.jpg')),
+                      otherAccountsPictures: <Widget>[
+                        CircleAvatar(
+                          backgroundColor: Colors.grey.shade50,
+                          backgroundImage: AssetImage('assets/pro_1351909.png'),
+                        )
+                      ],
                     ),
                     Container(
-                      padding: EdgeInsets.fromLTRB(40, 10, 80, 10),
+                      padding: EdgeInsets.fromLTRB(20, 10, 80, 20),
                       child: FlatButton.icon(
                         icon: Icon(FontAwesomeIcons.searchDollar),
 
-                        onPressed: () => Navigator.of(context)
-                            .pop(), // without onPress, style not showing
-                        color: Color(0xff12324F),
+                        onPressed: () => Navigator.of(context).push(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) => NewPage(
+                                    "Buy Boats"))), // without onPress, style not showing
+                        color: Colors.blue.shade500,
                         textColor: Colors.white,
                         label: Text(
-                          'Find Boats',
+                          'Rent Boats',
                           style: TextStyle(
                               fontWeight: FontWeight.w700, fontSize: 18),
                         ),
-                        padding: EdgeInsets.fromLTRB(0, 12, 20, 12),
+                        padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                       ),
@@ -91,7 +97,7 @@ class HomePage extends StatelessWidget {
                             // .copyWith(fontWeight: FontWeight.bold), // can add extra style to theme
                             ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -108,7 +114,7 @@ class HomePage extends StatelessWidget {
                           style: Theme.of(context).textTheme.body1,
                         ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -122,7 +128,7 @@ class HomePage extends StatelessWidget {
                           style: Theme.of(context).textTheme.body1,
                         ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -136,7 +142,7 @@ class HomePage extends StatelessWidget {
                           style: Theme.of(context).textTheme.body1,
                         ),
                         // trailing: Icon(Icons.arrow_right),
-                        contentPadding: EdgeInsets.fromLTRB(60, 0, 40, 0),
+                        contentPadding: EdgeInsets.fromLTRB(40, 0, 40, 0),
                         onTap: () {
                           Navigator.of(context).pop();
                           Navigator.of(context).push(MaterialPageRoute(
@@ -167,7 +173,7 @@ class HomePage extends StatelessWidget {
                   ListTile(
                       leading: Icon(Icons.exit_to_app),
                       title: Text(
-                        'Close',
+                        'Sign Out',
                         style: Theme.of(context).textTheme.body1,
                       ),
                       contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),

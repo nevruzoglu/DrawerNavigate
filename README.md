@@ -1,5 +1,3 @@
 # drawermenu
 
-- Custom icon space implemented to ListTile
-- Flat button icon space changed
-- Svg imported with flutter_svg
+![Main Screen](https://github.com/nevruzoglu/DrawerNavigate/blob/master/assets/screens/drawer.gif)

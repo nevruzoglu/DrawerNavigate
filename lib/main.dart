@@ -155,36 +155,37 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                children: <Widget>[
-                  Divider(
-                    color: Colors.black,
-                  ),
-                  ListTile(
-                      leading: Icon(
-                        Icons.settings,
-                        color: Colors.grey.shade400,
-                      ),
-                      title: Text(
-                        'Settings',
-                        style: Theme.of(context).textTheme.body1,
-                      ),
-                      contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                      onTap: () {
-                        Navigator.pop(context);
-                      }),
-                  ListTile(
-                      leading: Icon(Icons.exit_to_app),
-                      title: Text(
-                        'Sign Out',
-                        style: Theme.of(context).textTheme.body1,
-                      ),
-                      contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                      onTap: () {
-                        Navigator.pop(context);
-                      }),
-                  SizedBox(height: 40)
-                ],
+              SafeArea(
+                child: Column(
+                  children: <Widget>[
+                    Divider(
+                      color: Colors.black,
+                    ),
+                    ListTile(
+                        leading: Icon(
+                          Icons.settings,
+                          color: Colors.grey.shade400,
+                        ),
+                        title: Text(
+                          'Settings',
+                          style: Theme.of(context).textTheme.body1,
+                        ),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                        onTap: () {
+                          Navigator.pop(context);
+                        }),
+                    ListTile(
+                        leading: Icon(Icons.exit_to_app),
+                        title: Text(
+                          'Sign Out',
+                          style: Theme.of(context).textTheme.body1,
+                        ),
+                        contentPadding: EdgeInsets.fromLTRB(60, 0, 0, 0),
+                        onTap: () {
+                          Navigator.pop(context);
+                        }),
+                  ],
+                ),
               )
             ],
           ),
